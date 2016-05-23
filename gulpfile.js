@@ -1,3 +1,4 @@
+/* eslint-env node */
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var useref = require('gulp-useref');
@@ -6,21 +7,23 @@ var gulpIf = require('gulp-if');
 var cssnano = require('gulp-cssnano');
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
+var eslint = require('gulp-eslint');
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
+
 
 // Build Sequences
 // -----------------
 
 gulp.task('default', function (callback) {
-	runSequence(['watch', 'sass', 'browserSync'],
+	runSequence(['watch', 'sass', 'lint', 'browserSync'],
 		callback
 	);
 });
 
 gulp.task('build', function (callback) {
-	runSequence('clean:dist', 'sass',
+	runSequence(['clean:dist', 'sass', 'lint'],
 		['useref', 'images', 'fonts'],
 		callback
 	);
@@ -51,6 +54,13 @@ gulp.task('sass', function() {
 		.pipe(browserSync.reload({
 			stream: true
 		}));
+});
+
+gulp.task('lint', function() {
+	return gulp.src(['app/js/**/*.js'])
+		.pipe(eslint())
+		.pipe(eslint.format())
+		.pipe(eslint.failOnError());
 });
 
 // Optimization Tasks
