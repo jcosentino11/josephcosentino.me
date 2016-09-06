@@ -17,7 +17,7 @@ var browserSync = require('browser-sync').create();
 // -----------------
 
 gulp.task('default', function (callback) {
-	runSequence(['watch', 'sass', 'lint', 'browserSync'],
+	runSequence(['build', 'watch', 'browserSync'],
 		callback
 	);
 });
@@ -34,7 +34,7 @@ gulp.task('build', function (callback) {
 // -----------------
 
 gulp.task('watch', function() {
-	gulp.watch('app/scss/**/*.scss', ['sass']);
+	gulp.watch('app/scss/**/*.scss', ['sass', browserSync.reload]);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 });
