@@ -21,6 +21,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-cache": "^0.4.5",
+    "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^2.0.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.1",
