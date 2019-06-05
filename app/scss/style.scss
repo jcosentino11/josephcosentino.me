@@ -6,67 +6,47 @@ $default-font: 'Source Sans Pro', sans-serif;
 $reset-margin: 0;
 $reset-padding: 0;
 
-$content-width: 90%;
-$content-height: 150px;
+$content-width: 98%;
+$content-height: 98%;
 
 .reset {
 	margin: $reset-margin;
 	padding: $reset-padding;
 }
 
-.center-text {
-	text-align: center;
-}
-
-.center-block {
-	margin-left: auto;
-	margin-right: auto;
-	// extending styles must define a width
-}
-
 body {
 	font-family: $default-font;
 }
 
-div {
+h1 {
+    @extend .reset;
+    font-family: $title-font;
+    font-size: 300%;
+}
 
-	div {
-		
-		position: absolute;
-		width: $content-width;
-		height: $content-height;
-		top: 35%;
-		left: 50%;
-		margin-left: -$content-width / 2;
-		margin-top: -$content-height / 2;
-			
-		h1 {
-			@extend .center-text, .reset;
-			font-family: $title-font;
-			font-size: 300%;
-		}
+h2 {
+    @extend .reset;
+    font-size: 100%;
+}
 
-		h2 {
-			@extend .center-text, .reset;
-			font-size: 100%;
-			margin-bottom: 20px;
-		}
+#main-content-wrapper {
+    position: absolute;
+    width: $content-width;
+    height: $content-height;
+    text-align: center;
+}
 
-		ul {
-			@extend .center-block, .reset;
-			list-style-type: none;
-			width: 12em;
-		}
-		
-		li {
+#main-content {
+    display: inline-block;
+    margin-top: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-			float: left;
+#icons {
+    margin-top: 15px;
+}
 
-			a {
-				margin-left: 15px;
-				margin-right: 15px;
-				display: block;
-			}
-		}
-	}
+.icon {
+    margin-right: 10px;
 }
