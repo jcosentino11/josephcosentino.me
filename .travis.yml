@@ -12,6 +12,10 @@ before_script:
   # clear the deployment bucket
   - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
 
+after_script:
+  # clear cloudfront cache
+  - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
+
 script: gulp build
 
 deploy:
