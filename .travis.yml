@@ -8,7 +8,7 @@ before_script:
   # install gulp cli
   - npm install -g gulp-cli
   # install aws-cli
-  - pip install --user awscli
+  - pip install awscli
   # clear the deployment bucket
   - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
 
