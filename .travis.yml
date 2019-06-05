@@ -1,7 +1,6 @@
-language: node_js
-node_js:
-  - lts/*
+language: python
 before_script:
+  - nvm install --lts
   - npm install -g gulp-cli
 script: gulp build
 
