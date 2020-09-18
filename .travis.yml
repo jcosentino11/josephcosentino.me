@@ -32,9 +32,11 @@ jobs:
         - pip install awscli -U
         - echo "made it!"
       before_deploy:
+        - echo "before_deploy"
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
       after_success:
+        - echo "after_success"
         # clear cloudfront cache
         - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
       env:
