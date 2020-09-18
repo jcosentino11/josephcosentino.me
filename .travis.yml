@@ -17,6 +17,7 @@ jobs:
         # install gulp cli
         - npm install -g gulp-cli
     - stage: deploy
+      script: skip
       deploy:
         provider: s3
         access_key_id: $AWS_ACCESS_KEY_ID
