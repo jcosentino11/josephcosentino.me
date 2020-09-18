@@ -1,13 +1,15 @@
 language: python
 
 stages:
-  - build
+  - name: pr-check
+    if: branch != master
   - name: deploy
     if: branch = master
 
 jobs:
   include:
-    - stage: build
+
+    - stage: pr-check
       script: gulp build
       install:
         # install node
@@ -16,8 +18,20 @@ jobs:
         - npm install
         # install gulp cli
         - npm install -g gulp-cli
+
     - stage: deploy
-      script: skip
+      script: gulp build
+      install:
+        # install node
+        - nvm install 10.16.0
+        # install dependencies
+        - npm install
+        # install gulp cli
+        - npm install -g gulp-cli
+        # make sure pip is up to date
+        - pip install pip -U
+        # install aws-cli
+        - pip install awscli -U
       deploy:
         provider: s3
         access_key_id: $AWS_ACCESS_KEY_ID
@@ -26,18 +40,10 @@ jobs:
         skip_cleanup: true
         region: $REGION
         local_dir: dist
-      install:
-        # make sure pip is up to date
-        - pip install pip -U
-        # install aws-cli
-        - pip install awscli -U
-        - echo "made it!"
       before_deploy:
-        - echo "before_deploy"
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
-      after_success:
-        - echo "after_success"
+      after_deploy:
         # clear cloudfront cache
         - aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
       env:
