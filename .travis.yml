@@ -9,7 +9,7 @@ jobs:
   include:
     - stage: build
       script: gulp build
-      before_script:
+      install:
         # install node
         - nvm install 10.16.0
         # install dependencies
@@ -25,9 +25,10 @@ jobs:
         skip_cleanup: true
         region: $REGION
         local_dir: dist
-      before_deploy:
+      install:
         # install aws-cli
         - pip install awscli
+      before_deploy:
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
       after_success:
