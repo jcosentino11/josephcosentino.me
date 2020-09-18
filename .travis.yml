@@ -11,7 +11,7 @@ jobs:
       script: gulp build
       before_script:
         # install node
-        - nvm install --lts
+        - nvm install 10.16.0
         # install dependencies
         - npm install
         # install gulp cli
