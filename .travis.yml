@@ -28,9 +28,9 @@ jobs:
         local_dir: dist
       install:
         # make sure pip is up to date
-        - pip install -U pip
+        - pip install pip --upgrade
         # install aws-cli
-        - pip install awscli
+        - pip install awscli --upgrade --user
       before_deploy:
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
