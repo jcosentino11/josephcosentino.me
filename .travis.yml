@@ -26,6 +26,8 @@ jobs:
         region: $REGION
         local_dir: dist
       install:
+        # make sure pip is up to date
+        - pip install -U pip
         # install aws-cli
         - pip install awscli
       before_deploy:
