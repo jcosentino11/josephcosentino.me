@@ -2,9 +2,9 @@ language: python
 
 stages:
   - name: pr-check
-    if: branch != master
+    if: "$TRAVIS_PULL_REQUEST" != "false"
   - name: deploy
-    if: branch = master
+    if: "$TRAVIS_PULL_REQUEST" = "false"
 
 jobs:
   include:
