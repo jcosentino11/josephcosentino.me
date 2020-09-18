@@ -30,6 +30,7 @@ jobs:
         - pip install pip -U
         # install aws-cli
         - pip install awscli -U
+        - echo "made it!"
       before_deploy:
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
