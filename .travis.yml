@@ -16,8 +16,6 @@ jobs:
         - npm install
         # install gulp cli
         - npm install -g gulp-cli
-        # install aws-cli
-        - pip install awscli
     - stage: deploy
       deploy:
         provider: s3
@@ -28,6 +26,8 @@ jobs:
         region: $REGION
         local_dir: dist
       before_deploy:
+        # install aws-cli
+        - pip install awscli
         # clear the deployment bucket
         - aws s3 rm s3://$DEPLOYMENT_BUCKET --recursive --region=$REGION
       after_success:
