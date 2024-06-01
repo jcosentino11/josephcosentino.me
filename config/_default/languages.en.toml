@@ -1,0 +1,6 @@
+[params.author]
+name = "Joseph Cosentino"
+image = "profile.jpg"
+links = [
+  { linkedin = "https://www.linkedin.com/in/jcosentino11", github = "https://github.com/jcosentino11", soundcloud = "https://soundcloud.com/jcosentino11" }
+]
