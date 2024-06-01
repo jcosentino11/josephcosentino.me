@@ -1,2 +1,3 @@
 colorScheme = "ocean"
 homepage.layout = "profile"
+header.showTitle = false
