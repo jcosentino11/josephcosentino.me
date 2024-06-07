@@ -1,2 +1,9 @@
 baseURL = "https://josephcosentino.me/"
 languageCode = "en"
+sectionPagesMenu = 'main'
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
