@@ -1,6 +1,7 @@
 baseURL = "https://josephcosentino.me/"
 languageCode = "en"
 sectionPagesMenu = 'main'
+pluralizeListTitles = false
 
 [menu]
   [[menu.main]]
