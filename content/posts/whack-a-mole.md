@@ -3,9 +3,7 @@ title: "Building an online whack-a-mole game"
 date: 2024-08-10T19:00:00-00:00
 ---
 
-The past few weeks, I felt compelled to write an online multiplayer game in Erlang for no good reason at all, other than it seemed like fun. I picked whack-a-mole mostly because it was really simple to represent...I wanted to mess around with game queueing and the game protocol rather than game mechanics, etc.
-
-I picked Erlang because I wanted to build some more muscle in the language. Plus, Erlang is great a concurrency and game servers need a lot of it.
+The past few weeks, I felt compelled to write an online multiplayer game in Erlang for no good reason at all, other than it seemed like fun. I picked whack-a-mole mostly because it was really simple to represent...I wanted to mess around with game queueing and the game protocol rather than game mechanics, etc. Erlang felt like a natural choice for a game server since it excels at things like concurrency / handling many connections.
 
 At first I tried using Phoenix Framework/Elixir because it was new to me, and LiveView felt like it would be a good fit. However, since whack-a-mole is a toy project, I found myself not needing much of the functionality Phoenix provides, to the point where I felt like I was fighting with the framework. While I'm sure Phoenix would be great for building out a more productionized game, I really just wanted to use plain old Erlang and keep things really basic.
 
