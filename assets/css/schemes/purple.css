@@ -22,3 +22,12 @@
   --color-primary-800: 86, 65, 120;
   --color-primary-900: 68, 48, 98;
 }
+
+/* styling for inlined code, e.g. `code here` */
+code:not(pre code) {
+  background-color: rgba(var(--color-primary-200), 0.3);
+  color: rgb(var(--color-primary-800));
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
