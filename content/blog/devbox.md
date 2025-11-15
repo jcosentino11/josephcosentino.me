@@ -9,7 +9,7 @@ My laptop is my temple—I don't want to pollute it every time I `brew install .
 
 Here's an example devbox.json configuration I used when working on this very website. It installs everything needed for me to run `hugo server`....feels similar to a dockerfile.
 
-```
+```json
 {
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
   "packages": [
