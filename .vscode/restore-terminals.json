@@ -1,0 +1,12 @@
+{
+    "terminals": [
+        {
+            "splitTerminals": [
+                {
+                    "name": "project",
+                    "commands": [ "clear" ]
+                }
+            ]
+        }
+    ]
+}
