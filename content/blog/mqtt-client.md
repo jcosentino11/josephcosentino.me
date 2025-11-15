@@ -7,7 +7,7 @@ The idea of writing my own [MQTT](https://mqtt.org/) client has always felt inte
 
 After about a week of staring at the [MQTT 3.1.1 spec](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html), I built a client in C++ that can publish and subscribe to MQTT messages: https://github.com/jcosentino11/mqtt-client 🎉
 
-```
+```bash
 mqtt sub --topic hello/topic --address broker.emqx.io:1883 --client-id mqttclient1
 mqtt pub --topic hello/topic --address broker.emqx.io:1883 --client-id mqttclient2 '{"hello": "world"}'
 ```
@@ -15,9 +15,10 @@ mqtt pub --topic hello/topic --address broker.emqx.io:1883 --client-id mqttclien
 It ended up being a great learning experience, espcially being a newcomer to C++ and lower-level networking (much of my career has been backend Java).
 
 Here are some of my learnings (basic as they may be 🙂):
+
 * I started by binding an IPv6 socket to an IP address (since the broker I was testing with was binding to IPv6), but later found out about `getaddrinfo`, which took care of DNS resolution and figuring out IPv4 vs IPv6, which was very convenient. [[commit]](https://github.com/jcosentino11/mqtt-client/commit/e20471b09249973c08dc0ce9851daff2d788e743)
 
-```
+```c
 struct addrinfo hints = {}, *addrs;
 hints.ai_family = AF_UNSPEC;
 hints.ai_socktype = SOCK_STREAM;
@@ -38,8 +39,10 @@ for (struct addrinfo *addr = addrs; addr != NULL; addr = addr->ai_next) {
     }
 }
 ```
+
 * I learned how to build packets byte-by-byte from looking at MQTT spec. Here's an example (adapted from [Packet.cpp](https://github.com/jcosentino11/mqtt-client/blob/7e5c31fd15f85866e3a22814ae155c44892f99b7/src/Packet.cpp#L103-L134)) of building a [SUBSCRIBE](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718063) packet:
-```
+
+```c
 std::vector<uint8_t> payload;
 std::string topic = "example";
 
@@ -60,5 +63,3 @@ for (size_t i = 0; i < topic.size(); ++i) {
 payload.push_back(1); // QoS 1
 ```
 * For testing, [wireshark](https://www.wireshark.org/) was invaluable. Using the filter `mqtt && tcp.port == 1883` on my loopback interface, I was able to compare packets sent from my client vs. a real one (such as MQTTX).
-
-As I'm sure you already know, nothing beats hands-on learning, and this was no exception!

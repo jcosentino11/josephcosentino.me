@@ -14,7 +14,8 @@ Next was being able to spin up games (as Erlang processes) and add players to th
 Then it was a matter of building out the actual game playing functionality, which is really just one action... hit the mole. So when a player hits a mole, the server confirms that it was actually a hit, then updates the game state for that player and emits that state to all the other players so they're in sync. 
 
 The [game loop](https://github.com/jcosentino11/whack-a-mole/blob/fa5dafd32978b241aab41559457f64064b9b6601/src/game/whackamole_game.erl#L26-L87) reads really well in Erlang in my opinion:
-```
+
+```erlang
 receive
     stop ->
         game_over(GameState),
@@ -97,9 +98,7 @@ https://github.com/jcosentino11/whack-a-mole
 
 or give it a spin, 
 
-```
+```bash
 docker run -p 8080:8080 jcosentino11/whack-a-mole:latest
 open "http://localhost:8080"
 ```
-
-Don't forget to like and subscribe!
