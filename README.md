@@ -7,8 +7,3 @@
 * Clone the project
 * In vscode, `Devbox: Reopen in Devbox shell environment`
 * Start hugo: `hugo server`
-
-Site is now available at [http://localhost:1313/](http://localhost:1313/)
-
-
-<img width="400" alt="image" src="https://github.com/user-attachments/assets/55fb28c8-bfe7-48f2-9b43-4ecb31ac3bdb" />
