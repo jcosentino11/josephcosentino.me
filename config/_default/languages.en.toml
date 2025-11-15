@@ -1,8 +1,0 @@
-title = "Joseph Cosentino"
-
-[params.author]
-name = "Joseph Cosentino"
-image = "profile-2.jpg"
-links = [
-  { linkedin = "https://www.linkedin.com/in/jcosentino11", github = "https://github.com/jcosentino11", soundcloud = "https://soundcloud.com/jcosentino11", email = "jcosentino11@pm.me" }
-]

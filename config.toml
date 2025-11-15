@@ -1,0 +1,39 @@
+baseURL = "https://josephcosentino.me/"
+languageCode = "en"
+pluralizeListTitles = false
+
+[languages.en]
+  title = "Joseph Cosentino"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog"
+    weight = 2
+  [[menu.main]]
+    name = "Resume"
+    url = "/resume"
+    weight = 3
+
+[module]
+  [[module.imports]]
+    path = "github.com/jpanther/congo/v2"
+
+[params]
+  colorScheme = "purple"
+  [params.homepage]
+    layout = "profile"
+  [params.header]
+    showTitle = false
+  [params.author]
+    name = "Joseph Cosentino"
+    image = "profile-2.jpg"
+    [[params.author.links]]
+      linkedin = "https://www.linkedin.com/in/jcosentino11"
+      github = "https://github.com/jcosentino11"
+      soundcloud = "https://soundcloud.com/jcosentino11"
+      email = "jcosentino11@pm.me"
