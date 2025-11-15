@@ -3,11 +3,11 @@ title: "Using Devbox"
 date: 2025-11-14T22:36:48-05:00
 ---
 
-For whatever bizarre reason, growing older to me means I want to spend even more time fiddling with my development workflows. 
+Growing older to me means I want to spend even more time fiddling with my development workflows... 
 
-My laptop is my temple--I don't want to pollute it with every `brew install ...` I run when I'm just trying out random things. I thought back to an old coworker, who was raving about the joys of nix, and I wanted to give it a try myself. Now, I'm not nearly as brave, so instead of using nix directly, I opted to go for devbox, which provides nix-like isolated environments in a manner that's friendlier to noobs.
+My laptop is my temple—I don't want to pollute it every time I `brew install ...`. I've tried virtualenvs, Dockerfiles, virtual machines, you name it. So naturally, when my old coworker was raving about Nix, I wanted to try it out. And of course, I don't have the time or attention span to devote myself to learning Nix deeply, so I looked for a shortcut and landed on [devbox](https://www.jetify.com/devbox).
 
-Here's an example devbox.json configuration I use when working on this very website. It allows me to install everything I need to get `hugo` running....feels similar to a dockerfile.
+Here's an example devbox.json configuration I used when working on this very website. It installs everything needed for me to run `hugo server`....feels similar to a dockerfile.
 
 ```
 {
@@ -24,7 +24,7 @@ Here's an example devbox.json configuration I use when working on this very webs
 }
 ```
 
-Turns out, having isolated dev environments for all my throwaway projects really does scratch the itch of keeping things neat and tidy. Not to mention, it makes me feel nice and hipster.
+Turns out, having isolated dev environments for all my throwaway projects really does scratch the itch of keeping things neat and tidy. More importantly, it makes me feel like a hipster 😉.
 
 I even went as far as to put an empty, unmodifiable `~/go` file on my system... that central dumping ground has always put me on edge a bit, so it's nice to never have to worry about that again. 
 
