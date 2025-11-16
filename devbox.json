@@ -5,7 +5,9 @@
     "hugo"
   ],
   "env": {                                                          
-    "GOMODCACHE": "$HOME/.go"                                   
+    "GOPATH": "$DEVBOX_PROJECT_ROOT/.go",
+    "GOMODCACHE": "$DEVBOX_PROJECT_ROOT/.go/pkg/mod",
+    "GOCACHE": "$DEVBOX_PROJECT_ROOT/.go/gocache"                                   
   },
   "shell": {
     "init_hook": [
