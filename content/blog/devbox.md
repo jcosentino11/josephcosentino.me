@@ -16,12 +16,18 @@ Here's an example devbox.json configuration I used when working on this very web
     "go@1.24.3",
     "hugo"
   ],
+  "env": {                                                          
+    "GOPATH": "$DEVBOX_PROJECT_ROOT/.go",
+    "GOMODCACHE": "$DEVBOX_PROJECT_ROOT/.go/pkg/mod",
+    "GOCACHE": "$DEVBOX_PROJECT_ROOT/.go/gocache"                                   
+  },
   "shell": {
     "init_hook": [
       "hugo mod get -u github.com/jpanther/congo/v2"
     ]
   }
 }
+
 ```
 
 Turns out, having isolated dev environments for all my throwaway projects really does scratch the itch of keeping things neat and tidy. More importantly, it makes me feel like a hipster 😉.
