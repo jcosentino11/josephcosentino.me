@@ -5,11 +5,7 @@ draft: true
 description: ""
 ---
 
-AI is one of the great inventions of the modern era. It puts an incredible amount of knowledge at our fingertips and serves as a useful guide in a complicated society. 
-
-I, for one, use it just about everyday.  At work, I use it to help me find my blind spots--if I have a design question, I ask it to provide other options, to give thoughts on best practices. When coding, it helps me make quick progress, even when using unfamiliar technologies and frameworks. It's also helping in debugging systems, even with limited information!
-
-Outside of work, I use AI to help with daily life--with grocery planning, finding a good park to visit, thoughts on local coffee shops. Suprisingly, I've found it pretty good for basic medical and psychological questions! Although I don't recommend this in general, given that it gives companies very personal information. Sadly, I've just found it all too useful for me to care enough, I suppose that makes me part of the problem. Which brings me to my next point: for all of this convenience, there is a very real cost to it.
+Large language models (LLMs) are perhaps the greatest invention of the modern era. I use them just about every day, for work, for home, from grocery planning, to finding blind-spots in a technical design. While I could go on about the perceived benefits of AI (as the rest of the world has done ad nauseam at this point...), I would like to rant about the drawbacks instead.
 
 First, there's the human cost. Thousands upon thousands fired in the name of AI. I've seen it happen first-hand in Big Tech. It starts with gutting organizations, de-priortizing work, then multiple rounds of layoffs. In all fairness, before AI, post-COVID return to office was the scapegoat du jour. So it's difficult to say if AI as a technology itself is to blame. Companies are also "justifying" layoffs due to all the efficiencies gained through AI automation, or from individual workers being several times more effective with AI assistance. My cynicism says that it's primarily performative: how else can you claim that you're being part of the AI future? It's much easier to fire people than it is to show real results/profits. Short-term business thinking perpetuates this even further...
 
