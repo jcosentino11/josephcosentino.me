@@ -4,6 +4,8 @@
 
 ## Quick Start
 
-* Clone the project
-* In vscode, `Devbox: Reopen in Devbox shell environment`
-* Start hugo: `hugo server`
+Start hugo server. Changes will re-render automatically.
+
+```
+devbox run hugo
+```
