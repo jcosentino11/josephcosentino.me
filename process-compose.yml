@@ -1,0 +1,6 @@
+version: "0.5"
+processes:
+  hugo:
+   command: hugo server --disableFastRender
+   availability:
+    restart: "always"
