@@ -4,7 +4,10 @@
             "splitTerminals": [
                 {
                     "name": "project",
-                    "commands": [ "clear" ]
+                    "commands": [
+                        "refresh",
+                        "clear" 
+                    ]
                 }
             ]
         }
