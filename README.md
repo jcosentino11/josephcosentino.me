@@ -7,5 +7,5 @@
 Start hugo server. Changes will re-render automatically.
 
 ```
-devbox run hugo
+just start
 ```
