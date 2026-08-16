@@ -12,6 +12,8 @@
     // non-default: avoids invalid "Prompt" enum error from gopls
     "go.diagnostic.vulncheck": "Imports",
     // point at the devbox-managed binaries so the extension works without sourcing the devbox shell
-    "vscode-just.justPath": "${workspaceFolder}/.devbox/nix/profile/default/bin/just",
-    "vscode-just.lspPath": "${workspaceFolder}/.devbox/nix/profile/default/bin/just-lsp",
+    // NOTE: the vscode-just extension does not expand ${workspaceFolder}, but it does spawn these
+    // relative to the workspace root, so a repo-relative path works and stays portable
+    "vscode-just.justPath": ".devbox/nix/profile/default/bin/just",
+    "vscode-just.lspPath": ".devbox/nix/profile/default/bin/just-lsp",
 }
