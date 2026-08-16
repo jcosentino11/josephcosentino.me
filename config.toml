@@ -31,7 +31,7 @@ pluralizeListTitles = false
     showTitle = false
   [params.author]
     name = "Joseph Cosentino"
-    image = "profile-2.jpg"
+    image = "profile-3.jpg"
     [[params.author.links]]
       linkedin = "https://www.linkedin.com/in/jcosentino11"
       github = "https://github.com/jcosentino11"
