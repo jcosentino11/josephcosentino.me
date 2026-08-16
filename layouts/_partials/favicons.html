@@ -1,0 +1,39 @@
+{{/* Generates the favicon set from Site.Params.author.image so it stays in sync with whatever profile photo is configured. */}}
+{{ $srcName := .Params.author.image }}
+{{ $src := "" }}
+{{ if $srcName }}
+  {{ $src = resources.Get $srcName }}
+{{ end }}
+{{ if $src }}
+  {{ $target := $src.Width }}
+  {{ if lt $src.Height $target }}{{ $target = $src.Height }}{{ end }}
+  {{/* zoom in on the most salient (highest-entropy) region rather than using the full frame, so a wide selfie still favors a face-filling crop */}}
+  {{ $zoom := int (mul $target 0.5) }}
+  {{ $square := $src.Fill (printf "%dx%d Smart q95" $zoom $zoom) }}
+  {{ $boosted := $square.Filter (images.Contrast 0.12) (images.Saturation 25) (images.UnsharpMask 1.0 0.6 0) }}
+  {{/* png (alpha-capable) from the crop onward so the circle mask's transparency survives to the final encode */}}
+  {{ $squarePNG := $src.Fill (printf "%dx%d Smart q95 png" $zoom $zoom) }}
+  {{ $boostedPNG := $squarePNG.Filter (images.Contrast 0.12) (images.Saturation 25) (images.UnsharpMask 1.0 0.6 0) }}
+  {{ $mask := resources.Get "images/circle-mask.png" }}
+  {{ $circleMask := $mask.Resize (printf "%dx%d" $zoom $zoom) }}
+  {{ $circular := $boostedPNG.Filter (images.Mask $circleMask) }}
+
+  {{ $favicon16 := resources.Copy "favicon-16x16.png" ($circular.Resize "16x16") }}
+  {{ $favicon32 := resources.Copy "favicon-32x32.png" ($circular.Resize "32x32") }}
+  {{ $apple180 := resources.Copy "apple-touch-icon.png" ($boosted.Resize "180x180") }}
+  {{ $android192 := resources.Copy "android-chrome-192x192.png" ($boosted.Resize "192x192") }}
+  {{ $android512 := resources.Copy "android-chrome-512x512.png" ($boosted.Resize "512x512") }}
+
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ $apple180.RelPermalink }}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}" />
+  <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+  {{/* site.webmanifest references these paths directly; touch them so Hugo publishes the files */}}
+  {{ $noop1 := $android192.RelPermalink }}
+  {{ $noop2 := $android512.RelPermalink }}
+{{ else }}
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | relURL }}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | relURL }}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | relURL }}" />
+  <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
+{{ end }}
