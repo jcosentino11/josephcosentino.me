@@ -11,4 +11,7 @@
     "go.toolsManagement.autoUpdate": true,
     // non-default: avoids invalid "Prompt" enum error from gopls
     "go.diagnostic.vulncheck": "Imports",
+    // point at the devbox-managed binaries so the extension works without sourcing the devbox shell
+    "vscode-just.justPath": "${workspaceFolder}/.devbox/nix/profile/default/bin/just",
+    "vscode-just.lspPath": "${workspaceFolder}/.devbox/nix/profile/default/bin/just-lsp",
 }
