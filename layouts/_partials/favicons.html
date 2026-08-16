@@ -1,4 +1,4 @@
-{{/* Generates the favicon set from Site.Params.author.image so it stays in sync with whatever profile photo is configured. */}}
+{{/* Derives the favicon set from params.author.image. */}}
 {{ $srcName := .Params.author.image }}
 {{ $src := "" }}
 {{ if $srcName }}
@@ -7,11 +7,11 @@
 {{ if $src }}
   {{ $target := $src.Width }}
   {{ if lt $src.Height $target }}{{ $target = $src.Height }}{{ end }}
-  {{/* zoom in on the most salient (highest-entropy) region rather than using the full frame, so a wide selfie still favors a face-filling crop */}}
+  {{/* Smart-crop to the most salient region instead of the full frame. */}}
   {{ $zoom := int (mul $target 0.5) }}
   {{ $square := $src.Fill (printf "%dx%d Smart q95" $zoom $zoom) }}
   {{ $boosted := $square.Filter (images.Contrast 0.12) (images.Saturation 25) (images.UnsharpMask 1.0 0.6 0) }}
-  {{/* png (alpha-capable) from the crop onward so the circle mask's transparency survives to the final encode */}}
+  {{/* PNG so the mask's transparency survives encoding. */}}
   {{ $squarePNG := $src.Fill (printf "%dx%d Smart q95 png" $zoom $zoom) }}
   {{ $boostedPNG := $squarePNG.Filter (images.Contrast 0.12) (images.Saturation 25) (images.UnsharpMask 1.0 0.6 0) }}
   {{ $mask := resources.Get "images/circle-mask.png" }}
@@ -28,7 +28,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}" />
   <link rel="manifest" href="{{ "site.webmanifest" | relURL }}" />
-  {{/* site.webmanifest references these paths directly; touch them so Hugo publishes the files */}}
+  {{/* Force-publish: site.webmanifest hardcodes these paths. */}}
   {{ $noop1 := $android192.RelPermalink }}
   {{ $noop2 := $android512.RelPermalink }}
 {{ else }}
