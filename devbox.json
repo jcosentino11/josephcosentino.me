@@ -2,13 +2,13 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.14.2/.schema/devbox.schema.json",
   "packages": [
     "go@1.24.3",
-    "hugo",
+    "hugo@0.164.0",
     "just"
   ],
-  "env": {                                                          
+  "env": {
     "GOPATH": "$DEVBOX_PROJECT_ROOT/.go",
     "GOMODCACHE": "$DEVBOX_PROJECT_ROOT/.go/pkg/mod",
-    "GOCACHE": "$DEVBOX_PROJECT_ROOT/.go/gocache"                                   
+    "GOCACHE": "$DEVBOX_PROJECT_ROOT/.go/gocache"
   },
   "shell": {
     "init_hook": [
