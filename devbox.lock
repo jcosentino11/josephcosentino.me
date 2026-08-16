@@ -2,8 +2,8 @@
   "lockfile_version": "1",
   "packages": {
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-11-12T10:38:40Z",
-      "resolved": "github:NixOS/nixpkgs/91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60?lastModified=1762943920"
+      "last_modified": "2026-08-14T15:04:01Z",
+      "resolved": "github:NixOS/nixpkgs/8be7bd0c83f12e2e3bbba07c9044d6fed9e66f7f?lastModified=1786719841"
     },
     "go@1.24.3": {
       "last_modified": "2025-05-16T20:19:48Z",
@@ -53,23 +53,62 @@
         }
       }
     },
-    "hugo": {
-      "resolved": "github:NixOS/nixpkgs/91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60#hugo",
-      "source": "nixpkg",
+    "hugo@0.164.0": {
+      "last_modified": "2026-08-01T16:34:20Z",
+      "resolved": "github:NixOS/nixpkgs/a5cbcfe954791221bfffe2307f7d1a1bf61a871e#hugo",
+      "source": "devbox-search",
+      "version": "0.164.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
-              "path": "/nix/store/2znl3f9xdkynn4r8a4wjx4fd8sppxwbp-hugo-0.152.2",
+              "name": "out",
+              "path": "/nix/store/33l83zfr07b17nb6srriqyb06ipi31xl-hugo-0.164.0",
               "default": true
             }
-          ]
+          ],
+          "store_path": "/nix/store/33l83zfr07b17nb6srriqyb06ipi31xl-hugo-0.164.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/77km25p964ky6ffbwlh6dnmnwwypfprl-hugo-0.164.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/77km25p964ky6ffbwlh6dnmnwwypfprl-hugo-0.164.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ph9s5glvc25876f4zl6c92dplwzacs72-hugo-0.164.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ph9s5glvc25876f4zl6c92dplwzacs72-hugo-0.164.0"
         }
       }
     },
     "just": {
       "resolved": "github:NixOS/nixpkgs/91c9a64ce2a84e648d0cf9671274bb9c2fb9ba60#just",
-      "source": "nixpkg"
+      "source": "nixpkg",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "path": "/nix/store/7bs66yy7i31k1q2sbi61mm1jpbnvk9da-just-1.43.0",
+              "default": true
+            },
+            {
+              "name": "man",
+              "path": "/nix/store/68wlq1vznxmb6v3frwy1skwc44h24hj1-just-1.43.0-man",
+              "default": true
+            }
+          ]
+        }
+      }
     }
   }
 }
