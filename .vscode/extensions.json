@@ -3,6 +3,8 @@
 		// local nix-based development environment 
 		"jetpack-io.devbox",
 		// spawn terminals with local LLM and devbox on startup
-		"ethansk.restore-terminals"
+		"ethansk.restore-terminals",
+		// justfile syntax highlighting + language server
+		"nefrob.vscode-just-syntax"
 	]
 }

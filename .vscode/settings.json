@@ -11,4 +11,6 @@
     "go.toolsManagement.autoUpdate": true,
     // non-default: avoids invalid "Prompt" enum error from gopls
     "go.diagnostic.vulncheck": "Imports",
+    "vscode-just.justPath": ".devbox/nix/profile/default/bin/just",
+    "vscode-just.lspPath": ".devbox/nix/profile/default/bin/just-lsp",
 }
