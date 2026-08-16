@@ -1,5 +1,5 @@
 baseURL = "https://josephcosentino.me/"
-languageCode = "en"
+locale = "en"
 pluralizeListTitles = false
 
 [languages.en]
