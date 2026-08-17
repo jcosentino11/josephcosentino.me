@@ -6,7 +6,7 @@
         }
     },
     "terminal.integrated.defaultProfile.osx": "devboxCompatibleShell",
-    // direnv now loads devbox's env; don't let the devbox extension double-shell terminals
+    // guard in case jetpack-io.devbox is installed; direnv already handles env-loading
     "devbox.autoShellOnTerminal": false,
     // override so we don't use GOPATH and accidentally clutter up home dir
     "go.toolsGopath": "${workspaceFolder}/.go",
