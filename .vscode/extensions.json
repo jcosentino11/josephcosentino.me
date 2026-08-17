@@ -1,9 +1,7 @@
 {
 	"recommendations": [
-		// local nix-based development environment 
-		"jetpack-io.devbox",
-		// spawn terminals with local LLM and devbox on startup
-		"ethansk.restore-terminals",
+		// loads devbox's env (via direnv) into terminals, tasks, and the extension host
+		"mkhl.direnv",
 		// justfile syntax highlighting + language server
 		"nefrob.vscode-just-syntax"
 	]
