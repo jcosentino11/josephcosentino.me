@@ -1,5 +1,5 @@
 <!-- https://github.com/jpanther/congo/blob/dev/layouts/partials/author-links.html -->
-{{ with .Site.Language.Params.Author.links }}
+{{ with site.Language.Params.Author.links }}
   <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
     {{ range $links := . }}
       {{ range $name, $url := $links }}
